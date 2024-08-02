@@ -22,8 +22,8 @@ public class ChessBoardTest {
     
     @Test
     public void testChange() {
-    	List<String> result = chessBoard.change("a3");
-        List<String> expected = List.of("a3", "3");
+    	List<Integer> result = chessBoard.change("a3");
+        List<Integer> expected = List.of(1, 3);
     	
     	assertEquals(expected, result, "The change method should return the correct substrings.");
     }

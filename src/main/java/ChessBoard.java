@@ -46,13 +46,20 @@ public class ChessBoard {
 	}
 	
 	//체스말 이동
-	public List<String> change(String s) {
+	public List<Integer> change(String s) {
 		List location = new ArrayList<>();
-		for(int i=0;i<2;i++) {
-			location.add(s.substring(i));
-		}
+		char col = s.charAt(0);
+		int n = (int)col - 32;
+		location.add(n);
+		
+		col = s.charAt(1);
+		n= (int)col;
+		location.add(n);
 		
 		return location;
 	}
+	
+	
+	
 	
 }
