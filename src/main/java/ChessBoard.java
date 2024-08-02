@@ -45,5 +45,14 @@ public class ChessBoard {
         }
 	}
 	
+	//체스말 이동
+	public List<String> Change(String s) {
+		List location = new ArrayList<>();
+		for(int i=0;i<2;i++) {
+			location.add(s.substring(i));
+		}
+		
+		return location;
+	}
 	
 }
