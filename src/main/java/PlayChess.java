@@ -13,7 +13,7 @@ public class PlayChess {
 		ResultView Result = new ResultView();
 		
 		while(start) {
-			Result.printBoard(cb);
+			Result.printChessBoard(cb);
 			start = Input.start();
 		}
 

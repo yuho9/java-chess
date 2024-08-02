@@ -11,10 +11,6 @@ public class ChessBoard {
 		setWhite();
 	}
 	
-	//get
-	public String[][] getChessBoard() {
-		return chessBoard;
-	}
 	
 	//체스 보드 초기화
 	public void setBlack() {
@@ -31,7 +27,18 @@ public class ChessBoard {
 		chessBoard[7] = new String[] {"r", "n", "b", "q", "k", "b", "n", "r"};
 	}
 	
-	
+	//체스보드 출력
+	public void printLine(int idx) {
+		for(int i=0;i<8;i++) {
+			System.out.print(chessBoard[idx][i]);
+		}
+		System.out.println();
+	}
+	public void printBoard() {
+		for(int i=0;i<8;i++) {
+			printLine(i);
+		}
+	}
 	
 	
 }
