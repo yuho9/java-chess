@@ -7,6 +7,11 @@ public class PlayChess {
 		InputView Input = new InputView();
 		
 		Input.start();
+		
+		ChessBoard cb = new ChessBoard();
+		ResultView Result = new ResultView();
+		
+		Result.printBoard(cb);
 
 	}
 
