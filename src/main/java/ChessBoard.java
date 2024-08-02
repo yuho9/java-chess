@@ -59,7 +59,14 @@ public class ChessBoard {
 		return location;
 	}
 	
-	
+	public void movePiece(String source, String target) {
+		List<Integer> s = change(source);
+		List<Integer> t = change(target);
+		
+		chessBoard.get(t.get(1)).set(t.get(0), chessBoard.get(s.get(1)).get(s.get(0)));
+	    chessBoard.get(s.get(1)).set(s.get(0), ".");
+		
+	}
 	
 	
 }
