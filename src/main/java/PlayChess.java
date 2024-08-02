@@ -6,12 +6,16 @@ public class PlayChess {
 		
 		InputView Input = new InputView();
 		
-		Input.start();
+		Input.startMessage();
+		boolean start = Input.start();
 		
 		ChessBoard cb = new ChessBoard();
 		ResultView Result = new ResultView();
 		
-		Result.printBoard(cb);
+		while(start) {
+			Result.printBoard(cb);
+			start = Input.start();
+		}
 
 	}
 
