@@ -7,13 +7,17 @@ public class PlayChess {
 		InputView Input = new InputView();
 		
 		Input.startMessage();
-		boolean start = Input.start();
+		String start = Input.start();
 		
 		ChessBoard cb = new ChessBoard();
 		ResultView Result = new ResultView();
 		
-		while(start) {
+		if(start.equals("start")) {
 			Result.printChessBoard(cb);
+		}
+		
+		while(!start.equals("end")) {
+			cb.move(start);
 			start = Input.start();
 		}
 
