@@ -18,9 +18,10 @@ public class PlayChess {
 		
 		while(!start.equals("end")) {
 			cb.move(start);
+			Result.printStatus(start);
 			start = Input.start();
 		}
-
+		
 	}
 
 }

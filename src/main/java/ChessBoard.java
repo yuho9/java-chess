@@ -80,14 +80,96 @@ public class ChessBoard {
         }
     }
     
-    public boolean isWhite(char c) {
+    public int isWhite(String p) {
+    	char c = p.charAt(0);
     	if(c >= 97) {
-    		return true;
+    		return 1;
+    	}
+    	if(c >= 65) {
+    		return -1;
     	}
     	
-    	return false;
+    	return 0;
     }
     
+    public double getWhitePiece(String p, List<String> white, int[] pawnCount, int col) {
+    	 switch (p) {
+         case "r":
+        	 white.add(0, "9");
+             return 9;
+         case "b":
+        	 white.add(1, "3");
+             return 3;
+         case "n":
+        	 white.add(2, "2.5");
+             return 2.5;
+         case "q":
+        	 white.add(3, "9");
+             return 9;
+         case "p":
+             pawnCount[col]++;
+             white.add(0, Integer.toString(pawnCount[col]));
+             return 1;
+         default:
+             return 0;
+    	 }
+    	
+    }
     
+    public double getBlackPiece(String p, List<String> black, int[] pawnCount, int col) {
+   	 switch (p) {
+        case "R":
+       	 black.add(0, "9");
+            return 9;
+        case "B":
+       	 black.add(1, "3");
+            return 3;
+        case "N":
+       	 black.add(2, "2.5");
+            return 2.5;
+        case "Q":
+       	 black.add(3, "9");
+            return 9;
+        case "P":
+            pawnCount[col]++;
+            black.add(0, Integer.toString(pawnCount[col]));
+            return 1;
+        default:
+            return 0;
+   	 }
+   	
+   }
+    
+    public double changeWhite(String p, List<String> color, int[] pawnCount, int col) {
+    	if(isWhite(p) == 1) {
+    		return getWhitePiece(p, color,pawnCount, col);
+    	}
+    	if(isWhite(p) == -1) {
+    		return 0;
+    	}
+    	return 0;
+    }
+    
+    public double calculateRow(List<String> row, List<String> color, int[] pawnCount, int col) {
+    	int rowScore = 0;
+    	for(String piece : row) {
+    		rowScore += changeWhite(piece, color,pawnCount, col);
+    	}
+    	
+    	return rowScore;
+    }
+   
+    
+   public double calculateScore(ArrayList<String> color) {
+	   int[] pawnCount = new int[8];
+	   int col = 0;
+	   double score = 0;
+	   for (List<String> row : chessBoard) {
+		   score+=calculateRow(row, color,pawnCount,col);
+		   col++;
+	   }
+	   
+	   return score;
+   }
 }
 
