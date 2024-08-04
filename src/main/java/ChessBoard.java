@@ -52,10 +52,16 @@ public class ChessBoard {
     public List<Integer> change(String s) {
         List<Integer> location = new ArrayList<>();
         char col = s.charAt(0);
+        if (col < 'a' || col > 'h') {
+            throw new IllegalArgumentException("위치 입력 오류: 열은 'a'부터 'h' 사이여야 합니다.");
+        }
         int colIdx = col - 'a'; // 'a'를 0으로 변환
         location.add(colIdx);
         
         char row = s.charAt(1);
+        if (row < '1' || row > '8') {
+            throw new IllegalArgumentException("위치 입력 오류: 행은 '1'부터 '8' 사이여야 합니다.");
+        }
         int rowIdx = row - '1'; // '1'을 0으로 변환
         location.add(rowIdx);
         
