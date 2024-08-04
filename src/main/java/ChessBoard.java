@@ -79,5 +79,15 @@ public class ChessBoard {
             printBoard();
         }
     }
+    
+    public boolean isWhite(char c) {
+    	if(c >= 97) {
+    		return true;
+    	}
+    	
+    	return false;
+    }
+    
+    
 }
 
