@@ -68,16 +68,24 @@ public class ChessBoard {
         List<Integer> t = change(target);
         
         String piece = chessBoard.get(7 - s.get(1)).get(s.get(0));
+        
+        //에러처리
+        if (piece.equals(".")) {
+            System.out.println("에러: 선택한 위치에 체스말이 없습니다.");
+            return;
+        }
+        
         chessBoard.get(7 - t.get(1)).set(t.get(0), piece);
         chessBoard.get(7 - s.get(1)).set(s.get(0), ".");
     }
     
     public void move(String command) {
     	String[] mst = command.split(" ");
-    	if(mst[0].equals("move")) {
-            movePiece(mst[1], mst[2]);
-            printBoard();
+    	if(!mst[0].equals("move")) {
+           return;
         }
+    	movePiece(mst[1], mst[2]);
+        printBoard();
     }
     
     public int isWhite(String p) {

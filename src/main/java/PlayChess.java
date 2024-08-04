@@ -12,6 +12,8 @@ public class PlayChess {
 		ChessBoard cb = new ChessBoard();
 		ResultView Result = new ResultView();
 		
+		
+		
 		if(start.equals("start")) {
 			Result.printChessBoard(cb);
 		}
